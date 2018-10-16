@@ -29,37 +29,12 @@ public class AdminController {
            return "mayibackstage/login.jsp";
         }
     }
-
-
     //管理员列表
     @RequestMapping(value = "/adminlist" ,method= RequestMethod.GET)
     public String getAdmins(HttpServletRequest request){
         List<Admin> adminList=adminService.getAdmins();
         request.setAttribute("adminList",adminList);
         return "mayibackstage/admin.jsp";
-    }
-
-
-    /*
-	 * 添加管理员账户
-	 *吴隆
-	 * @author
-	 */
-    @RequestMapping(value = "/doAddAdmin", method = RequestMethod.POST)
-    public String doAddAdmin(HttpServletRequest request, Admin admin, HttpSession session) {
-        if (admin.getA_name().equals("")) {
-            request.setAttribute("massage", "添加失败：姓名不能为空！！");
-        } else if (admin.getA_user().equals("")) {
-            request.setAttribute("massage", "添加失败：网名不能为空！！");
-        } else {
-            Boolean status = adminService.addAdmin(admin);
-            if (status) {
-                request.setAttribute("massage", "添加成功");
-            }
-        }
-
-
-        return "jsp/admin/adminmanage/adminadd.jsp";
     }
 
 }

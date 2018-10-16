@@ -8,10 +8,6 @@ import java.util.List;
 public interface AdminDao {
     // 登陆
     Admin login(@Param(value = "a_user") String a_user, @Param(value = "a_password") String a_password);
-    /*
-     * 添加管理员账户
-     * */
-    int addAdmin(Admin admin);
     // 管理员列表
     List<Admin> getAdmins();
 }

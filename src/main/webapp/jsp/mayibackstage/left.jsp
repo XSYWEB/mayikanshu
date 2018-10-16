@@ -10,15 +10,15 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="<%=basePath%>jsp/mayibackstage/css/bootstrap.min.css" rel="stylesheet">
 		<!-- index CSS -->
-		<link href="css/index.css" rel="stylesheet">
+		<link href="<%=basePath%>jsp/mayibackstage/css/index.css" rel="stylesheet">
 		<!-- jquery JS -->
-		<script src="js/jquery-3.3.1.js"></script>
+		<script src="<%=basePath%>jsp/mayibackstage/js/jquery-3.3.1.js"></script>
 		<!-- Bootstrap JS  -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="<%=basePath%>jsp/mayibackstage/js/bootstrap.min.js"></script>
 		<!-- index JS -->
-		<script src="js/index.js"></script>
+		<script src="<%=basePath%>jsp/mayibackstage/js/index.js"></script>
 		<style type="text/css">
 			html,
 			body {
@@ -82,7 +82,7 @@
 
 				<!--导航	-->
 				<div class="menu-one">
-					<a href="books.html" target="mainFrame" class="nav-font">
+					<a href="<%=basePath%>mayikanshu/booklist" target="mainFrame" class="nav-font">
 						<p>书籍管理</p>
 					</a>
 				</div>
