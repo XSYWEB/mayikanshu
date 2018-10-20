@@ -66,11 +66,11 @@
 			<div class="row">
 
 				<c:forEach var="adminList" items="${requestScope.adminList}">
-			 <a href="adminupdate.html" target="mainFrame">
+			 <a href="<%=basePath%>jsp/mayibackstage/adminupdate.html" target="mainFrame">
 				<div class="col-md-3">
 				
 					<div class="thumbnail">	
-						<img class="img-circle" src="<%=basePath%>jsp/mayibackstage/img/admin1.png " width="188px" height="199px" alt="... ">
+						<img class="img-circle" src="${adminList.a_images}"  style="width: 180px;height: 190px" alt="... ">
 						<div class="caption font-weight-bold text-center ">
 							<h3 class=" ">${adminList.a_name}</h3>
 							<p>职务：${adminList.a_position}</p>
@@ -88,44 +88,38 @@
 
 
 				</div>
-				  
-				  
-				  
-				  
-			
-				
 						<!--分页-->
 			<div class="row">
 				
 				<div class="col-xs-8"></div>
 				<div class="col-xs-1 p-0" style="margin-top: 1.7%;">
-					共<i class="blue">7</i>条记录,页面<i class="blue">1</i>/<i class="blue">1</i>
+					共<i class="blue">${pageUtil.pageNumber}</i>条记录,页面<i class="blue">${pageUtil.pageIndex}</i>/<i class="blue">1</i>
 				</div>
 				<div class="col-xs-3">
 					<nav aria-label="Page navigation" class="center-block  pull-left">
 						<ul class="pagination">
 							<li>
-								<a href="#" aria-label="Previous">
+								<a href="page?pageIndex=${pageUtil.pageIndex>1?pageUtil.pageIndex-1:1}" aria-label="Previous">
 									<span aria-hidden="true">&laquo;</span>
 								</a>
 							</li>
 							<li>
-								<a href="#">1</a>
+								<a href="page?pageIndex=1">1</a>
 							</li>
 							<li>
-								<a href="#">2</a>
+								<a href="page?pageIndex=2">2</a>
 							</li>
 							<li>
-								<a href="#">3</a>
+								<a href="page?pageIndex=3">3</a>
 							</li>
 							<li>
-								<a href="#">4</a>
+								<a href="page?pageIndex=4">4</a>
 							</li>
 							<li>
-								<a href="#">5</a>
+								<a href="test/page?pageIndex=5">5</a>
 							</li>
 							<li>
-								<a href="#" aria-label="Next">
+								<a href="page?pageIndex=${pageUtil.pageIndex<pageUtil.pageCount?pageUtil.pageIndex+1:pageUtil.pageCount}" aria-label="Next">
 									<span aria-hidden="true">&raquo;</span>
 								</a>
 							</li>

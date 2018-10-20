@@ -5,16 +5,24 @@ import java.util.Date;
 public class Book {
 
     private Integer id;
-    private Integer t_id;//书的分类外键
-    private  String b_name;//书名
-    private  String b_writer;//作者
+    private BookType t_id;//书的分类外键
+    private String b_name;//书名
+    private String b_writer;//作者
     private Integer b_price;//价格
-    private Date b_time;//收录时间
+    private java.util.Date b_time;//收录时间
     private Integer b_click;//点击数
     private Integer b_num;//字数
     private String b_image;//图片
     private String b_describe;//简介
-    private String b_recommend;//推荐值
+    private Integer b_recommend;//推荐值
+
+    public BookType getT_id() {
+        return t_id;
+    }
+
+    public void setT_id(BookType t_id) {
+        this.t_id = t_id;
+    }
 
     public Integer getId() {
         return id;
@@ -22,14 +30,6 @@ public class Book {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getT_id() {
-        return t_id;
-    }
-
-    public void setT_id(Integer t_id) {
-        this.t_id = t_id;
     }
 
     public String getB_name() {
@@ -96,11 +96,11 @@ public class Book {
         this.b_describe = b_describe;
     }
 
-    public String getB_recommend() {
+    public Integer getB_recommend() {
         return b_recommend;
     }
 
-    public void setB_recommend(String b_recommend) {
+    public void setB_recommend(Integer b_recommend) {
         this.b_recommend = b_recommend;
     }
 }

@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<!-- 实体类,简称 -设置别名 -->
-	<typeAliases>
-		<!-- 将com.lcvc.ebuytest3.model.Admin类重新起一个名字Admin，供mybatis的映射文件使用 -->
-		<typeAlias alias="User" type="com.mayiwo.mayikanshu.model.User"/>
-		<typeAlias alias="Admin" type="com.mayiwo.mayikanshu.model.Admin"/>
-		<typeAlias alias="Book" type="com.mayiwo.mayikanshu.model.Book"/>
+    <!-- 实体类,简称 -设置别名 -->
+    <typeAliases>
+        <!-- 将com.lcvc.ebuytest3.model.Admin类重新起一个名字Admin，供mybatis的映射文件使用 -->
+        <typeAlias alias="User" type="com.mayiwo.mayikanshu.model.User"/>
+        <typeAlias alias="Admin" type="com.mayiwo.mayikanshu.model.Admin"/>
+        <typeAlias alias="Book" type="com.mayiwo.mayikanshu.model.Book"/>
+        <typeAlias alias="BookType" type="com.mayiwo.mayikanshu.model.BookType"/>
+        <typeAlias alias="Comment" type="com.mayiwo.mayikanshu.model.Comment"/>
 
+    </typeAliases>
 
-	</typeAliases>
+    <mappers>
+        <!--注册adminMappe.xml文件 -->
+        <mapper resource="com/mayiwo/mayikanshu/dao/mapper/UserMapper.xml"/>
+        <mapper resource="com/mayiwo/mayikanshu/dao/mapper/AdminMapper.xml"/>
+        <mapper resource="com/mayiwo/mayikanshu/dao/mapper/BookMapper.xml"/>
+        <mapper resource="com/mayiwo/mayikanshu/dao/mapper/BookTypeMapper.xml"/>
+        <mapper resource="com/mayiwo/mayikanshu/dao/mapper/CommentMapper.xml"/>
 
-	<mappers>
-		<!--注册adminMappe.xml文件 -->
-		<mapper resource="com/mayiwo/mayikanshu/dao/mapper/UserMapper.xml"/>
-		<mapper resource="com/mayiwo/mayikanshu/dao/mapper/AdminMapper.xml"/>
-		<mapper resource="com/mayiwo/mayikanshu/dao/mapper/BookMapper.xml"/>
-
-
-
-	</mappers>
+    </mappers>
 
 
 </configuration>  

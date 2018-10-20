@@ -12,11 +12,11 @@
 	</head>
 	<frameset rows="60,*" cols="*" frameborder="no" border="0" framespacing="0" style="">
 
-		<frame src="<%=basePath%>jsp/mayibackstage/top.html" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+		<frame src="<%=basePath%>jsp/mayibackstage/top.jsp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
 		<frameset cols="12%,*" frameborder="no" border="0" framespacing="0">
 			<frame src="<%=basePath%>jsp/mayibackstage/left.jsp" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
 			
-				<frame src="<%=basePath%>jsp/mayibackstage/main.html" name="mainFrame" id="mainFrame" title="mainFrame" />
+				<frame src="<%=basePath%>jsp/mayibackstage/main.jsp" name="mainFrame" id="mainFrame" title="mainFrame" />
 				
 		</frameset>
 	</frameset>

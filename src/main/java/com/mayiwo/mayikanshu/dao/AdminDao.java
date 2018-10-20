@@ -10,4 +10,6 @@ public interface AdminDao {
     Admin login(@Param(value = "a_user") String a_user, @Param(value = "a_password") String a_password);
     // 管理员列表
     List<Admin> getAdmins();
+    //添加管理员
+    int addAdmin(Admin admin);
 }

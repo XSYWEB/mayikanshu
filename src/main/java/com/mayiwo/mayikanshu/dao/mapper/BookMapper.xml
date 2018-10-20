@@ -3,9 +3,49 @@
 <!-- 指明这个映射文件adminMapper.xml的逻辑路径,如果与接口建立映射，那么逻辑路径应该与接口的物理路径一致-->
 <mapper namespace="com.mayiwo.mayikanshu.dao.BookDao">
     <!-- parameterType表示要传入的参数的类型 ，resultType表示要返回的数据的类型-->
-    <!-- 书籍列表 -->
-    <select id="getBooks"   resultType="Book">
+
+    <!--获取书籍列表-->
+    <resultMap type="Book" id="BookResultMap">
+        <!--property指ProductManage类中的属性名,javaType指这个属性的类型，column指属性名productType在数据库中实际对应的列名/外键 -->
+        <!-- association可以用于外键的表关联查询，会通过select所指明的ProductType映射文件中的get方法，取找到关联的表的记录并将其封装到ProductType类型对应的属性中 -->
+        <association property="t_id" javaType="BookType"
+                     column="t_id" select="getbooktype"></association>
+    </resultMap>
+    <select id="getBooks" resultMap="BookResultMap">
         select * from book
     </select>
+    <select id="getbooktype" resultType="BookType" parameterType="int">
+        select * from booktype where id=#{t_id}
+    </select>
+
+    <!--添加书籍-->
+    <insert id="addBook">insert book(id,t_id,b_name,b_writer,b_price,b_time,b_click,b_num,b_image,b_describe,b_recommend)
+values(null,#{t_id.id},#{b_name},#{b_writer},#{b_price},#{b_time},#{b_click},#{b_num},#{b_image},#{b_describe},#{b_recommend}) </insert>
+
+    <!--删除书籍-->
+    <delete parameterType="int" id="deleteBook">delete from book where id=#{id} </delete>
+
+    <!--跳转到修改页面-->
+    <select id="toUpdateBook" resultMap="BookResultMap">
+        select * from book where id=#{id}
+    </select>
+
+    <!-- 修改产品分类（提交表单后） -->
+    <update id="doUpdateBook">
+        update book
+        <set>
+            <if test="t_id!=null and t_id.id!=null">t_id=#{t_id.id},</if>
+            <if test="b_name!=null and b_name.length()>0">b_name=#{b_name},</if>
+            <if test="b_describe!=null">b_describe=#{b_describe},</if>
+            <if test="b_writer!=null">b_writer=#{b_writer},</if>
+            <if test="b_price!=null and b_price>0">b_price=#{b_price},</if>
+            <if test="b_click!=null and b_click>0">b_click=#{b_click},</if>
+            <if test="b_image!=null">b_image=#{b_image},</if>
+            <if test="b_num!=null and b_num>0">b_num=#{b_num},</if>
+            <if test="b_recommend!=null">b_recommend=#{b_recommend},</if>
+            <if test="b_time!=null">b_time=#{b_time},</if>
+        </set>
+        where id=#{id}
+    </update>
 
 </mapper>

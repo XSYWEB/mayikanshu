@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>首页</title>
+
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<style type="text/css">
+			.mar-100 {
+				margin-left: 30px;
+				margin-top: 30px;
+			}
+			
+			.entrance {
+				height: 100px;
+				margin: 0px 60px 0px 15px;
+			}
+			
+			.middle {
+				font-weight: bold;
+				font-size: 18px;
+				color: #FFFFFF;
+			}
+			
+			h1 {
+				margin-top: 35px;
+				display: inline-block;
+				vertical-align: middle;
+				font-weight: bold;
+				color: #FFFFFF;
+			}
+			
+			.tablelist {
+				border: solid 1px #cbcbcb;
+				width: 100%;
+				clear: both;
+			}
+			
+			.tablelist th {
+				height: 34px;
+				line-height: 34px;
+				border-bottom: solid 1px #b6cad2;
+				text-indent: 11px;
+			}
+			
+			.tablelist td {
+				line-height: 35px;
+				text-indent: 11px;
+				border-right: dotted 1px #c7c7c7;
+			}
+			
+			.tablelink {
+				color: #056dae;
+			}
+			
+			.tablelist tbody tr:hover {
+				background: #e5ebee;
+			}
+			
+			.zxtj {
+				border: 1.2px solid #c7c7c7;
+				height: 200px;
+				width: 160px;
+				margin-right: 50px;
+			}
+			
+			.img {
+				margin-top: 10%;
+			}
+			
+			.li {
+				margin-top: 5%;
+				list-style-type: none;
+			}
+			
+			.bt {
+				font-size: 20px;
+				margin-top: 30px;
+			}
+			
+			.max-bt {
+				margin-top: 20px;
+				font-size: 20px;
+				font-weight: 800;
+			}
+			
+			.num-left {
+				margin-top: 18px;
+			}
+			
+			.num {
+				font-size: 30px;
+				font-weight: 800;
+				color: #FFFFFF;
+			}
+			
+			.num-md {
+				font-size: 15px;
+				color: #FFFFFF;
+			}
+			
+			.num-sm {
+				font-size: 12px;
+				color: #FFFFFF;
+			}
+			
+			.tubiao {
+				color: #FFFFFF;
+				font-size: 50px;
+				float: right;
+				margin-top: 25px;
+			}
+			.odd{
+				background-color:#F5F8FA;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+
+			<div class="mar-100 bt">
+
+				<span style="color: red; font-weight: 800;">${sessionScope.admin.a_name} &nbsp;&nbsp; </span>
+
+				<span>欢迎使用蚂蚁看书后台管理系统！</span>
+
+			</div>
+			<div class="mar-100">
+				<div class="max-bt">
+					<span>快捷入口</span>
+				</div>
+				<hr align="left" width="98%;" color="#FFAC0E" />
+
+				<div class="row">
+					<!--今日新增书籍-->
+					<a href="books.jsp" target="mainFrame">
+					<div class="row col-xs-2 entrance" style="background-color: #99CCFF;">
+
+						<div class="col-xs-8 num-left">
+							<span class="num">123</span><span class="num-md">本</span>
+							<p class="num-sm">今日新增书籍</p>
+						</div>
+						<div class="col-xs-4">
+							<span class=" tubiao glyphicon glyphicon-book"></span>
+						</div>
+
+					</div>
+					</a>
+					<!--今日新增书籍结束-->
+					<!--今日新增用户-->
+					<a href="usermanage.html" target="mainFrame">
+					<div class="row col-xs-2 entrance" style="background-color: #FFCC99;">
+
+						<div class="col-xs-8 num-left">
+							<span class="num">468</span><span class="num-md">人</span>
+							<p class="num-sm">今日新增用户</p>
+						</div>
+						<div class="col-xs-4">
+							<span class=" tubiao glyphicon glyphicon-user"></span>
+						</div>
+
+					</div>
+					</a>
+					<!--今日新增用户结束-->
+					<!--今日新增咨询-->	
+					<a href="#">
+					<div class="row col-xs-2 entrance" style="background-color:#67B168;">
+
+						<div class="col-xs-8 num-left">
+							<span class="num">68</span><span class="num-md">条</span>
+							<p class="num-sm">今日新增资讯</p>
+						</div>
+						<div class="col-xs-4">
+							<span class=" tubiao glyphicon glyphicon-list-alt"></span>
+						</div>
+
+					</div>
+					</a>
+                    <!--今日新增咨询结束-->		<!---->
+					<div class="col-xs-3" style="height: 100px;">
+						<div class="row">
+							<div class="col-xs-5 text-center" style="height: 100px;background-color: #FFAC0E; padding-top: 25px;" id="">
+								<span class="middle">星期二</span>
+								<p><span class="middle">2018-10-9</span></p>
+							</div>
+							<div class="col-xs-7 float-left text-center" style="height: 100px;background-color: #CCCCCC;padding: 19px;" id="">
+								<span class="" style="font-size: 45px; color: #FFFFFF; ">12:00</span>
+							</div>
+						</div>
+					</div>
+					
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-11">
+
+					<div class="mar-100" style="margin-right: 73px;">
+						<div class="max-bt">
+							<span>最新添加管理员</span>
+						</div>
+						<hr align="left" width="100%;" color="#FFAC0E" size="15" />
+
+						<table class="tablelist">
+							<thead style="background-color: #F0F5F7;">
+								<tr>
+									<th style="width:15%">昵称</th>
+									<th style="width:15%">职位</th>
+									<th style="width:15%">电话</th>
+									<th style="width:22%">年龄</th>
+									<th style="width:28%">创建日期</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr>
+									<td>李4</td>
+									<td>boss</td>
+									<td>155454564646</td>
+									<td>18</td>
+									<td> 2018-04-02 17:34:27</td>
+								</tr>
+
+								<tr class="odd">
+									<td>李4</td>
+									<td>boss</td>
+									<td>155454564646</td>
+									<td>18</td>
+									<td> 2018-04-02 17:34:27</td>
+
+								</tr>
+
+								<tr>
+									<td>李4</td>
+									<td>boss</td>
+									<td>155454564646</td>
+									<td>18</td>
+									<td> 2018-04-02 17:34:27</td>
+
+								</tr>
+
+								<tr class="odd">
+									<td>李4</td>
+									<td>boss</td>
+									<td>155454564646</td>
+									<td>18</td>
+									<td> 2018-04-02 17:34:27</td>
+
+								</tr>
+								
+								<tr>
+									<td>李4</td>
+									<td>boss</td>
+									<td>155454564646</td>
+									<td>18</td>
+									<td> 2018-04-02 17:34:27</td>
+								</tr>
+
+								<tr class="odd">
+									<td>李4</td>
+									<td>boss</td>
+									<td>155454564646</td>
+									<td>18</td>
+									<td> 2018-04-02 17:34:27</td>
+
+								</tr>
+
+								<tr>
+									<td>李4</td>
+									<td>boss</td>
+									<td>155454564646</td>
+									<td>18</td>
+									<td> 2018-04-02 17:34:27</td>
+
+								</tr>
+
+								<tr class="odd">
+									<td>李4</td>
+									<td>boss</td>
+									<td>155454564646</td>
+									<td>18</td>
+									<td> 2018-04-02 17:34:27</td>
+
+								</tr>
+								
+								
+
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+
+				<div class="col-xs-3"></div>
+
+			</div>
+
+		</div>
+	</body>
+
+</html>

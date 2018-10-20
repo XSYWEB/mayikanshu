@@ -97,7 +97,7 @@
 						<a href="#">书籍管理</a>
 					</li>
 					<li class="active">书籍列表</li>
-					<a href="#" style="float: right;margin-right: 7%;font-size: 20px;">
+					<a href="<%=basePath%>mayibackstage/book/toAddBook" style="float: right;margin-right: 7%;font-size: 20px;">
 						<span class="glyphicon glyphicon-plus"></span>
 						<span style="">添加书籍</span>
 					</a>
@@ -128,13 +128,14 @@
 					<tr>
 						<td class="imgtd">
 
-							<img src="<%=basePath%>jsp/mayibackstage/img/dldl.jpg" style="width: 60px;height: 80px;">
+							<img src="${booklist.b_image}" style="width: 60px;height: 80px;">
 
 						</td>
 						<td>
 								${booklist.b_name}
 						</td>
-						<td>科幻
+						<td>
+								${booklist.t_id.t_name}
 						</td>
 						<td>
 								${booklist.b_writer}
@@ -149,8 +150,8 @@
 						<td>${booklist.b_describe}</td>
 						<td><p><fmt:formatDate value="${booklist.b_time}" pattern="yyyy-MM-dd  HH:mm"/></p></td>
 						<td>
-							<a href="" class="tablelink">修改</a>
-							<a href="" name="deleteProduct" alt="86" class="tablelink">删除</a>
+							<a href="<%=basePath%>mayibackstage/book/toUpdateBook?id=${booklist.id}" class="tablelink">修改</a>
+							<a href="<%=basePath%>mayibackstage/book/deleteBook?id=${booklist.id}" name="deleteProduct" alt="86" class="tablelink">删除</a>
 						</td>
 					</tr>
 				</c:forEach>
@@ -162,8 +163,8 @@
 			<!--分页-->
 			<div class="row">
 				
-				<div class="col-xs-8"></div>
-				<div class="col-xs-1 p-0" style="margin-top: 1.7%;">
+				<div class="col-xs-7"></div>
+				<div class="col-xs-2 p-0 text-center" style="margin-top: 1.8%;">
 					共<i class="blue">7</i>条记录,页面<i class="blue">1</i>/<i class="blue">1</i>
 				</div>
 				<div class="col-xs-3">

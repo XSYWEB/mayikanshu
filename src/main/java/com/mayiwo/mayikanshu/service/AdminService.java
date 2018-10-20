@@ -21,5 +21,14 @@ public class AdminService {
         return adminDao.getAdmins();
     };
 
+    //添加管理员
+    public Boolean addAdmin(Admin admin) {
+        Boolean status = false;
+        int i = adminDao.addAdmin(admin);
+        if (i > 0) {
+            status = true;
+        }
+        return status;
+    }
 }
 

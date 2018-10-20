@@ -74,40 +74,34 @@
 		<div class="left-nav">
 
 			<div class="text-center">
-				<img class="img-circle" src="img/admin1.png" width="100px" height="100px" style="margin-top: 20%;" />
-				<h4 style="color: #FFFFFF; margin-bottom: 70px;">蚂蚁二号</h4>
+				<img class="img-circle" src="${sessionScope.admin.a_images}"  style="margin-top: 20%; height: 150px;width: 150px" />
+				<h4 style="color: #FFFFFF; margin-bottom: 70px;">${sessionScope.admin.a_name}</h4>
 			</div>
 
 			<div style="padding: 0px 40px;">
 
 				<!--导航	-->
 				<div class="menu-one">
-					<a href="<%=basePath%>mayikanshu/booklist" target="mainFrame" class="nav-font">
+					<a href="<%=basePath%>mayibackstage/book/booklist" target="mainFrame" class="nav-font">
 						<p>书籍管理</p>
 					</a>
 				</div>
-					<!--导航	-->
-				<div class="menu">
-					<a href="#" class="nav-font">
-						<p>书架管理</p>
-					</a>
-				</div>	
 				<!--导航	-->
 				<div class="menu">
-					<a href="comment.html" target="mainFrame" class="nav-font">
+					<a href="<%=basePath%>mayibackstage/comment/commentlist" target="mainFrame" class="nav-font">
 						<p>评论管理</p>
 					</a>
 				</div>
 			
 				<!--导航	-->
 				<div class="menu">
-					<a href="usermanage.html" target="mainFrame" class="nav-font">
+					<a href="<%=basePath%>mayibackstage/user/userlist" target="mainFrame" class="nav-font">
 						<p>用户管理</p>
 					</a>
 				</div>
 				<!--导航	-->
 				<div class="menu">
-					<a href="<%=basePath%>mayikanshu/adminlist" target="mainFrame" class="nav-font">
+					<a href="<%=basePath%>mayibackstage/admin/adminlist" target="mainFrame" class="nav-font">
 						<p>管理员管理</p>
 					</a>
 				</div>

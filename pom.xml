@@ -77,6 +77,12 @@
       <version>${spring.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -231,6 +237,14 @@
       <artifactId>jackson-annotations</artifactId>
       <version>${jackson.version}</version>
     </dependency>
+
+    <!--kindeditor组件需要的包-->
+    <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
     <!--添加该包后Maven会自动下载该类需要的其他jar:如common-collection,commons-beanutils-->
     <dependency>
       <groupId>net.sf.json-lib</groupId>
@@ -289,7 +303,7 @@
   </dependencies>
 
   <build>
-    <finalName>ljy_maven_github_ssm</finalName>
+    <finalName>mayibacckstage</finalName>
     <resources>
       <!-- idea不会编译src的java目录的xml文件
   解决思路：通过下面的build标签，将IDEA maven项目中src源代码下的xml等资源文件编译进classes文件夹-->

@@ -5,13 +5,15 @@
     <!-- parameterType表示要传入的参数的类型 ，resultType表示要返回的数据的类型-->
 
     <!-- 登录操作 -->
-    <select id="login"   resultType="Admin">
+    <select id="login" resultType="Admin">
         select * from admin where a_user=#{a_user} and a_password=#{a_password}
     </select>
 
     <!-- 管理员列表 -->
-    <select id="getAdmins"   resultType="Admin">
+    <select id="getAdmins" resultType="Admin">
         select * from admin
     </select>
 
+    <!--添加管理员-->
+    <insert id="addAdmin">insert admin(id,a_name,a_user,a_password,a_position,a_phone,a_age,a_images,a_sex)values(null,#{a_name},#{a_user},#{a_password},#{a_position},#{a_phone},#{a_age},#{a_images},#{a_sex}) </insert>
 </mapper>

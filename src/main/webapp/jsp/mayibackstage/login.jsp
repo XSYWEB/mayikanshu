@@ -23,7 +23,7 @@
 				<div class="form-horizontal col-md-offset-3">
 					<h3 class="form-title" style="color: #FFFFFF;">LOGIN</h3>
 					<div class="col-md-9">
-						<form action="<%=basePath%>mayikanshu/login" method="post">
+						<form action="<%=basePath%>admin/login" method="post">
 							<div class="form-group">
 								<i class="fa fa-user fa-lg"></i>
 								<input class="form-control required" type="text" name="a_user" placeholder="User" autofocus="autofocus" />

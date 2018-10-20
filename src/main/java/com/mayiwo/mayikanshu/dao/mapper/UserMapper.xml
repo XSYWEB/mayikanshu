@@ -8,5 +8,31 @@
     <select id="getUsers"   resultType="User">
         select * from user
     </select>
-
+    <!-- 获取用户信息 -->
+    <select id="getUser" resultType="User">
+        select * from user where id=#{id}
+    </select>
+    <!-- 修改信息 -->
+    <update id="update">
+        update user
+        <!-- <set>标签用来取代SQL语句的set -->
+        <set>
+            <if test="u_name!=null">u_name=#{u_name},</if>
+            <if test="u_password!=null">u_password=#{u_password},</if>
+            <if test="u_phone!=null">u_phone=#{u_phone},</if>
+            <if test="u_images!=null">u_images=#{u_images},</if>
+            <if test="u_sex!=null">u_sex=#{u_sex},</if>
+        </set>
+        where id=#{id}
+    </update>
+    <!-- 添加用户 -->
+    <insert id="addUser">
+        insert user(id,u_name,u_user,u_password,u_phone,u_age,u_images,u_sex,u_introduce,u_create_time,u_currency)
+        values
+        (null,#{u_name},#{u_user},#{u_password},#{u_phone},#{u_age},#{u_images},#{u_sex},#{u_introduce},#{u_create_time},0)
+    </insert>
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
 </mapper>
