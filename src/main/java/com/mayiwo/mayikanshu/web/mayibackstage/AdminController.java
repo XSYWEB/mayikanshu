@@ -35,4 +35,28 @@ public class AdminController {
         adminService.addAdmin(admin);
         return "jsp/mayibackstage/adminadd.jsp";
     }
+    /*
+         * 根据id获取指定类型的值
+         * 修改日期 2018514
+         * @author S6203-1-08
+         */
+    @RequestMapping(value = "/toUpdate")
+    public String toUpdate(HttpServletRequest request, Integer id) {
+        request.setAttribute("admin", adminService.getAdmin(id));
+        return "jsp/mayibackstage/adminupdate.jsp";
+    }
+    /*
+         * 修改用户信息
+         * 修改日期 20180605
+         * @author S6203-1-08
+         */
+    @RequestMapping(value = "/doUpdate", method = RequestMethod.POST)
+    public String doUpdate(HttpServletRequest request, Admin admin) {
+        adminService.updateAdmin(admin);
+        request.setAttribute("massage", "修改成功");
+        request.setAttribute("admin", adminService.getAdmin(admin.getId()));
+        //执行产品编辑
+        return "mayibackstage/admin/toUpdate";
+
+    }
 }

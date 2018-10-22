@@ -20,4 +20,10 @@ public interface BookDao {
     //修改产品分类（提交表单后）
     int doUpdateBook(Book book);
 
+    //昨日新增书籍
+    int Yesterday();
+
+    //本周点击数最多的书
+    List<Book> clickbook();
+
 }

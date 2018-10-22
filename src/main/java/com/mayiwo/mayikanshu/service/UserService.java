@@ -59,5 +59,11 @@ public class UserService {
             userDao.deleteUser(id);
         }
     }
+
+    //昨日新增书籍
+    public int Yesterday(){
+        int yes= userDao.Yesterday();
+        return yes;
+    };
 }
 

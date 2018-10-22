@@ -98,7 +98,7 @@
     <hr style="margin-left: 5%;" align="left" width="85%;" color="#FFAC0E" size=""/>
 
     <!--表单开始-->
-    <form class="form-horizontal" action="<%=basePath%>mayibackstage/book/doAddBook" method="post">
+    <form class="form-horizontal" action="<%=basePath%>mayibackstage/book/doUpdateBook" method="post">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">产品分类</label>
             <div style="position:relative;height: 30px; " class="col-xs-3 ">
@@ -126,6 +126,7 @@
         </div>
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">书名</label>
+            <input name="id" type="hidden" value="${requestScope.book.id}" >
             <div class="col-sm-3">
                 <input name="b_name" type="text" value="${requestScope.book.b_name}" class="form-control"
                        id="inputEmail3" placeholder="b_name">
@@ -191,7 +192,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-1">
-                <button type="submit" style="background-color: #00A1EC;color: #FFFFFF;" class="btn btn-default">添加
+                <button type="submit" style="background-color: #00A1EC;color: #FFFFFF;" class="btn btn-default">确认修改
                 </button>
 
             </div>

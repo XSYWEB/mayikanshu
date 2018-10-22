@@ -60,5 +60,17 @@ public class BookService {
         }
         return status;
     }
+
+    //昨日新增书籍
+    public int Yesterday(){
+       int yes= bookDao.Yesterday();
+        return yes;
+    };
+
+    //本周点击数最多的书
+    public List<Book> clickbook() {
+        return bookDao.clickbook();
+    }
+
 }
 

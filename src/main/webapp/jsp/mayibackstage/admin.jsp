@@ -66,7 +66,7 @@
 			<div class="row">
 
 				<c:forEach var="adminList" items="${requestScope.adminList}">
-			 <a href="<%=basePath%>jsp/mayibackstage/adminupdate.html" target="mainFrame">
+			 <a href="<%=basePath%>mayibackstage/admin/toUpdate?id=${adminList.id}" target="mainFrame">
 				<div class="col-md-3">
 				
 					<div class="thumbnail">	

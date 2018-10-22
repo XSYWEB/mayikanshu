@@ -5,7 +5,6 @@
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <html>
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>蚂蚁后台管理系统</title>
@@ -23,6 +22,10 @@
 	<noframes>
 
 		<body>
+		<c:forEach var="clickbook" items="${sessionScope.clickbook}">
+
+		</c:forEach>
+
 		</body>
 	</noframes>
 

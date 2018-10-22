@@ -82,6 +82,6 @@ public class UserController {
     @RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
     public String deleteUser(Integer id,HttpServletRequest request) {
         userService.deleteUser(id);
-        return "jsp/mayibackstage/usermanage.jsp";
+        return "mayibackstage/user/userlist";
     }
 }

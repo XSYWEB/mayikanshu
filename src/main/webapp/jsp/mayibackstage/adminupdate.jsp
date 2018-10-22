@@ -1,3 +1,9 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 
@@ -6,19 +12,25 @@
 		<title>管理员信息修改</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="<%=basePath%>jsp/mayibackstage/css/bootstrap.min.css" rel="stylesheet">
 		<!-- index CSS -->
-		<link href="css/index.css" rel="stylesheet">
+		<link href="<%=basePath%>jsp/mayibackstage/css/index.css" rel="stylesheet">
 		<!-- jquery JS -->
-		<script src="js/jquery-3.3.1.js"></script>
+		<script src="<%=basePath%>jsp/mayibackstage/js/jquery-3.3.1.js"></script>
 		<!-- Bootstrap JS  -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="<%=basePath%>jsp/mayibackstage/js/bootstrap.min.js"></script>
 		<!-- 导入kindEditor所需插件 -->
-		<link rel="stylesheet" href="plugins/kindeditor-4.1.10/themes/default/default.css" />
-		<script src="plugins/kindeditor-4.1.10/kindeditor.js"></script>
-		<script src="plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
+		<link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css" />
+		<script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor.js"></script>
+		<script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
 		<script>
+            var massage='${requestScope.massage}';
+            //对话框只在服务器传递信息时才弹出
+            if(massage!=''){
+                alert(massage);
+            }
 			$(document).ready(function() {
+
 
 				//当点击“清除图片路径”时，将清除图片路径信息
 				$("#clearImagePath1").click(function() {
@@ -31,9 +43,9 @@
 			KindEditor.ready(function(K) {
 				var editor = K.editor({ //图片上传
 					//指定上传文件的服务器端程序。
-					uploadJson: 'plugins/kindeditor-4.1.10/jsp/upload_json.jsp',
+					uploadJson: '<%=basePath%>plugins/kindeditor-4.1.10/jsp/upload_json.jsp',
 					//指定浏览远程图片的服务器端程序
-					fileManagerJson: 'plugins/kindeditor-4.1.10/jsp/file_manager_json.jsp',
+					fileManagerJson: '<%=basePath%>plugins/kindeditor-4.1.10/jsp/file_manager_json.jsp',
 					//是否允许进行文件管理
 					allowFileManager: true
 				});
@@ -63,43 +75,57 @@
 			</div>
 			<!--水平线-->
 			<hr style="margin-left: 5%;" align="left" width="85%;" color="#FFAC0E" size="" />
-			<!--表单开始-->
-			<form class="form-horizontal">
 
+			<!--表单开始-->
+			<form action="<%=basePath%>mayibackstage/admin/doUpdate" class="form-horizontal" method="post">
+				<input name="id" type="hidden" class="dfinput" value="${requestScope.admin.id}" />
 				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label">昵称</label>
+					<label  class="col-sm-2 control-label">昵称</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="inputEmail3" placeholder="name">
+						<input name="a_name" type="text" class="form-control" value="${requestScope.admin.a_name}">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 					<div class="col-sm-3">
-						<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+						<input name="a_password" type="password" class="form-control" id="inputPassword3" value="${requestScope.admin.a_password}">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputPassword3" class="col-sm-2 control-label">电话</label>
+					<label  class="col-sm-2 control-label">电话</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="inputPassword3" placeholder="13594546545">
+						<input name="a_phone" type="text" class="form-control"  value="${requestScope.admin.a_phone}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">年龄</label>
+					<div class="col-sm-3">
+						<input name="a_age" type="text" class="form-control"  value="${requestScope.admin.a_age}">
 					</div>
 				</div>
 				<div class="form-group">
 
 					<label for="exampleInputFile" class="col-sm-2 control-label">性别</label>
 					<div class="col-sm-3">
-						<label>
-      				<input type="radio" name="optionsRadios"   id="optionsRadios1" value="男" checked> 男 
-      				<input type="radio" name="optionsRadios" id="optionsRadios2"  value="女">女
-     				
-  					 </label>
+					<label>
+						<c:choose>
+							<c:when  test="${requestScope.admin.a_sex==1}">
+								<input name="a_sex" type="radio"    id="optionsRadios1" value="0" > 男
+								<input name="a_sex" type="radio"  id="optionsRadios2"  value="1" checked>女
+							</c:when>
+							<c:otherwise>
+								<input name="a_sex" type="radio"    id="optionsRadios1" value="0" checked> 男
+								<input name="a_sex" type="radio"  id="optionsRadios2"  value="1" >女
+							</c:otherwise>
+						</c:choose>
+					</label>
 					</div>
 				</div>
 				<div class="form-group">
 
 					<label for="exampleInputFile" class="col-sm-2 control-label">头像</label>
 					<div class="col-sm-3">
-						<input id="url1" name="picUrl" type="text" class="dfinput" value="" readonly="readonly">
+						<input id="url1" name="a_images" type="text" class="dfinput" value="${requestScope.admin.a_images}" readonly="readonly">
 						<input type="button" id="image1" class="dfinput" style="width:100px;" value="点我选择图片">
 						<a href="#" id="clearImagePath1">清除路径</a>
 						<i></i>
@@ -108,18 +134,13 @@
 				</div>
 
 				<div class="form-group">
-					<label for="inputPassword3" class="col-sm-2 control-label">职位</label>
+					<label  class="col-sm-2 control-label">职位</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="inputPassword3" placeholder="经理">
+						<input name="a_position" type="text" class="form-control"  value="${requestScope.admin.a_position}">
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="inputPassword3" class="col-sm-2 control-label">个性签名</label>
-					<div class="col-sm-3">
-						<textarea name="description" cols="" rows="" class="form-control" id="description"></textarea><i id="description_message"></i>
-					</div>
-				</div>
+
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-1">
 						<button type="submit" style="background-color: #00A1EC;color: #FFFFFF;" class="btn btn-default">修改</button>

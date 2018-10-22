@@ -30,5 +30,25 @@ public class AdminService {
         }
         return status;
     }
+    /*
+	 * 根据id获取指定类型的值
+	 * 20180604
+	 * @
+	 */
+    public Admin getAdmin(Integer id) {
+        Admin user=null;
+        if(id!=null){
+            user=adminDao.getAdmin(id);
+        }
+        return user;
+
+    }
+    /*
+	 * 修改用户信息
+	 */
+    public void updateAdmin(Admin admin) {
+
+        adminDao.updateAdmin(admin);
+    }
 }
 

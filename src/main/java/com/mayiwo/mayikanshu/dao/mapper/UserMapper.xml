@@ -6,7 +6,7 @@
 
     <!-- 查询用户表所以信息 -->
     <select id="getUsers"   resultType="User">
-        select * from user
+        select * from user ORDER BY u_create_time DESC
     </select>
     <!-- 获取用户信息 -->
     <select id="getUser" resultType="User">
@@ -35,4 +35,8 @@
     <delete id="deleteUser" parameterType="int">
         delete from user where id=#{id}
     </delete>
+    <!-- 首页今日新增用户-->
+    <select id="Yesterday" resultType="int">
+        SELECT COUNT(id) FROM user WHERE TO_DAYS( NOW( ) ) - TO_DAYS(u_create_time) = 1
+    </select>
 </mapper>

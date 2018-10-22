@@ -105,7 +105,7 @@
 				</ol>
 
 			</div>
-			<table class="imgtable">
+			<table class="imgtable table-striped">
 
 				<thead style="background-color: #F0F5F7;">
 					<tr>
@@ -116,8 +116,8 @@
 						<th style="width:10%;">字数</th>
 						<th style="width:10%;">点击数</th>
 						<th style="width:10%;">简介</th>
-						<th style="width:20%;">收录时间</th>
-						<th style="width:12%;">操作</th>
+						<th style="width:12%;">收录时间</th>
+						<th style="width:20%;">操作</th>
 					</tr>
 				</thead>
 
@@ -150,6 +150,7 @@
 						<td>${booklist.b_describe}</td>
 						<td><p><fmt:formatDate value="${booklist.b_time}" pattern="yyyy-MM-dd  HH:mm"/></p></td>
 						<td>
+							<a href="<%=basePath%>mayibackstage/chapter/chapterlist" class="tablelink">添加章节</a>
 							<a href="<%=basePath%>mayibackstage/book/toUpdateBook?id=${booklist.id}" class="tablelink">修改</a>
 							<a href="<%=basePath%>mayibackstage/book/deleteBook?id=${booklist.id}" name="deleteProduct" alt="86" class="tablelink">删除</a>
 						</td>

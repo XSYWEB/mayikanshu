@@ -12,7 +12,7 @@
                      column="t_id" select="getbooktype"></association>
     </resultMap>
     <select id="getBooks" resultMap="BookResultMap">
-        select * from book
+        select * from book ORDER BY b_time DESC
     </select>
     <select id="getbooktype" resultType="BookType" parameterType="int">
         select * from booktype where id=#{t_id}
@@ -48,4 +48,13 @@ values(null,#{t_id.id},#{b_name},#{b_writer},#{b_price},#{b_time},#{b_click},#{b
         where id=#{id}
     </update>
 
+    <!-- 首页今日新增书籍-->
+    <select id="Yesterday" resultType="int">
+        SELECT COUNT(id) FROM book WHERE TO_DAYS( NOW( ) ) - TO_DAYS(b_time) = 1
+    </select>
+
+    <!-- 本周点击数最多的书-->
+    <select id="clickbook" resultMap="BookResultMap">
+        SELECT * FROM book where DATE_SUB(CURDATE(), INTERVAL 7 DAY) &lt;date(b_time) ORDER BY b_click DESC LIMIT 8
+    </select>
 </mapper>

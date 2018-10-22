@@ -23,4 +23,6 @@ public interface UserDao {
 	  * 删除用户
 	  */
      int deleteUser(Integer id);
+     //昨日新增书籍
+     int Yesterday();
 }

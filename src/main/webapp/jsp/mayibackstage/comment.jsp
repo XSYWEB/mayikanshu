@@ -124,7 +124,7 @@
 						<td>${commentList.c_comm}</td>
 
 						<td>
-							<a href="" class="tablelink">修改</a>
+
 							<a href="<%=basePath%>mayibackstage/comment/deletecomment?id=${commentList.id}" name="" alt="" class="tablelink">删除</a>
 						</td>
 					</tr>

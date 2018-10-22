@@ -12,4 +12,12 @@ public interface AdminDao {
     List<Admin> getAdmins();
     //添加管理员
     int addAdmin(Admin admin);
+    /*
+         * 根据id获取指定的值
+         * */
+    Admin getAdmin(Integer id);
+    /*
+     * 修改信息
+     * */
+    int updateAdmin(Admin admin);
 }

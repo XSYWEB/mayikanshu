@@ -16,4 +16,21 @@
 
     <!--添加管理员-->
     <insert id="addAdmin">insert admin(id,a_name,a_user,a_password,a_position,a_phone,a_age,a_images,a_sex)values(null,#{a_name},#{a_user},#{a_password},#{a_position},#{a_phone},#{a_age},#{a_images},#{a_sex}) </insert>
+
+    <!-- 获取管理员信息 -->
+    <select resultType="Admin" id="getAdmin">select * from admin where id=#{id} </select>
+
+    <!-- 修改信息 -->
+    <update id="updateAdmin">
+        update admin
+        <set>
+            <if test="a_name!=null">a_name=#{a_name},</if>
+            <if test="a_password!=null">a_password=#{a_password},</if>
+            <if test="a_phone!=null">a_phone=#{a_phone},</if>
+            <if test="a_age!=null">a_age=#{a_age},</if>
+            <if test="a_images!=null">a_images=#{a_images},</if>
+            <if test="a_position!=null">a_position=#{a_position},</if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>
